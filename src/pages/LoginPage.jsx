@@ -77,15 +77,15 @@ const LoginPage = () => {
                 </div>
                 
                 <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px', marginTop: '10px'}}>
-                    <img src="src/assets/login_asset/shiba.png" alt="Image 1" style={{ width: '33.33%', margin: '0 1%' }} />
-                    <img src="src/assets/login_asset/tram.png" alt="Image 2" style={{ width: '33.33%', margin: '0 1%' }} />
-                    <img src="src/assets/login_asset/quynh.png" alt="Image 3" style={{ width: '33.33%', margin: '0 1%' }} />
+                    <img src="public/login_asset/shiba.png" alt="Image 1" style={{ width: '33.33%', margin: '0 1%' }} />
+                    <img src="public/login_asset/tram.png" alt="Image 2" style={{ width: '33.33%', margin: '0 1%' }} />
+                    <img src="public/login_asset/quynh.png" alt="Image 3" style={{ width: '33.33%', margin: '0 1%' }} />
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <img src="src/assets/login_asset/Sang.png" alt="Image 1" style={{ width: '33.33%', margin: '0 1%' }} />
-                    <img src="src/assets/login_asset/nghia.png" alt="Image 2" style={{ width: '33.33%', margin: '0 1%' }} />
-                    <img src="src/assets/login_asset/na.png" alt="Image 3" style={{ width: '33.33%', margin: '0 1%' }} />
-                    <img src="src/assets/login_asset/huy.png" alt="Image 4" style={{ width: '33.33%', margin: '0 1%' }} />
+                    <img src="public/login_asset/Sang.png" alt="Image 1" style={{ width: '33.33%', margin: '0 1%' }} />
+                    <img src="public/login_asset/nghia.png" alt="Image 2" style={{ width: '33.33%', margin: '0 1%' }} />
+                    <img src="public/login_asset/na.png" alt="Image 3" style={{ width: '33.33%', margin: '0 1%' }} />
+                    <img src="public/login_asset/huy.png" alt="Image 4" style={{ width: '33.33%', margin: '0 1%' }} />
                 </div>
         </div>
 

@@ -45,7 +45,7 @@ const ProfileModal = () => {
             <button onClick={onOpen}>
                 <Avatar.Root className='flex gap-2 pr-2 py-0.5 items-center overflow-hidden rounded-box align-middle cursor-pointer hover:bg-gray-200'>
                     <Avatar.Image className=' h-10 aspect-square rounded-full object-cover'
-                        src='src/assets/snoopy.jpeg' alt='avatar'>
+                        src='public/snoopy.jpeg' alt='avatar'>
                     </Avatar.Image>
                     <div className={'hidden md:block text-sm font-semibold'}>{`${profile.firstName} ${profile.lastName}`}</div>
                     <GrStatusGoodSmall className={'fill-green'} />
