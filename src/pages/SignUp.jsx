@@ -61,15 +61,15 @@ const SignUp = () => {
                 </div>
                 
                 <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px', marginTop: '10px'}}>
-                    <img src="public/login_asset/shiba.png" alt="Image 1" style={{ width: '33.33%', margin: '0 1%' }} />
-                    <img src="public/login_asset/tram.png" alt="Image 2" style={{ width: '33.33%', margin: '0 1%' }} />
-                    <img src="public/login_asset/quynh.png" alt="Image 3" style={{ width: '33.33%', margin: '0 1%' }} />
+                    <img src="login_asset/shiba.png" alt="Image 1" style={{ width: '33.33%', margin: '0 1%' }} />
+                    <img src="login_asset/tram.png" alt="Image 2" style={{ width: '33.33%', margin: '0 1%' }} />
+                    <img src="login_asset/quynh.png" alt="Image 3" style={{ width: '33.33%', margin: '0 1%' }} />
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <img src="public/login_asset/Sang.png" alt="Image 1" style={{ width: '33.33%', margin: '0 1%' }} />
-                    <img src="public/login_asset/nghia.png" alt="Image 2" style={{ width: '33.33%', margin: '0 1%' }} />
-                    <img src="public/login_asset/na.png" alt="Image 3" style={{ width: '33.33%', margin: '0 1%' }} />
-                    <img src="public/login_asset/huy.png" alt="Image 4" style={{ width: '33.33%', margin: '0 1%' }} />
+                    <img src="login_asset/Sang.png" alt="Image 1" style={{ width: '33.33%', margin: '0 1%' }} />
+                    <img src="login_asset/nghia.png" alt="Image 2" style={{ width: '33.33%', margin: '0 1%' }} />
+                    <img src="login_asset/na.png" alt="Image 3" style={{ width: '33.33%', margin: '0 1%' }} />
+                    <img src="login_asset/huy.png" alt="Image 4" style={{ width: '33.33%', margin: '0 1%' }} />
                 </div>
         </div>
       <div className='flex flex-col w-1/2 items-center justify-center'>
