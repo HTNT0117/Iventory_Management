@@ -13,7 +13,7 @@ export default function PieChart() {
             label: "# of products",
             data: [12, 19, 4, 2, 55,],
             backgroundColor: [
-                '#f44444',
+                '#f44443',
                 '#a2c8fe',
                 '#f5ff8c',
                 '#9cffaa',
