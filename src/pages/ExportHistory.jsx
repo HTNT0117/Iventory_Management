@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import DeleteDialog from "../components/btn/DeleteDialog.jsx";
 import axios from 'axios';
 import { EXPORT_HISTORY_DATA } from '../../api/endPointAPI.js';
+import { Table } from "antd";
+
 
 const ExportHistory = () => {
     const [exportHistoryData,setExportHistoryData] = useState([])
@@ -21,6 +23,23 @@ const ExportHistory = () => {
         )
     },[])
 
+    const columns = [
+        {
+            title: 'EID',
+            dataIndex: 'eid',
+            key: 'eid',
+        },
+        {
+            title: 'Employee name',
+            dataIndex: 'employeename',
+            key: 'employeename',
+        },
+        {
+            title: 'Date',
+            dataIndex: 'exportdate',
+            key: 'exportdate',
+        }
+    ]
 
 
     return (
@@ -32,36 +51,12 @@ const ExportHistory = () => {
                         View Export History
                     </div>
                 </div>
-                <table className="min-w-full bg-white rounded-md">
-                    <thead>
-                    <tr>
-                        <th className="px-6 py-3 border-b-2 border-gray-300 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Eid</th>
-                        <th className="px-6 py-3 border-b-2 border-gray-300 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Employee
-                            name
-                        </th>
-                        <th className="px-6 py-3 border-b-2 border-gray-300 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Action</th>
-                    </tr>
-                    </thead>
-                    <tbody className="bg-white">
-
-                    {
-                            exportHistoryData.map((data,index)=>(
-                                <tr key={index}>
-                                {/*implement API sau*/}
-                                {/*<td className="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{index + 1}</td>*/}
-                                {/*<td className="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{export.Ename}</td>*/}
-                                <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{data.eid}</td>
-                                <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-200">{data.employeename}</td>
-                                <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                                    <DeleteDialog/>
-                                </td>
-                            </tr>
-                            ))
-                        }
-
-
-                    </tbody>
-                </table>
+                <Table
+                columns={columns}
+                dataSource={exportHistoryData}
+                rowKey="eid"
+                bordered
+            />
             </div>
         </>
     )
