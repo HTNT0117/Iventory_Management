@@ -51,7 +51,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className='flex bg-gray-200 bg-white h-screen'>
+    <div className='flex bg-white h-screen'>
           <div className='text-blue font-bold text-4xl w-1/2 justify-center items-center flex flex-col transform -translate-y-8'>
                 <div className='text-center'>
                     <p className='p-1 mb-1'>INVENTORY</p>
