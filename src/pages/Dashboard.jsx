@@ -180,18 +180,16 @@ import BarChart from "../components/chart/BarChart.jsx";
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pb-6">
           <div className="flex flex-col rounded-lg border border-gray-100 bg-white shadow-xl  ">
-            <div className="text-start p-5 text-lg">
-              <span className="flex font-bold text-3xl">$1234</span>
-              Sales this month
+            <div className="text-start p-5 font-bold text-xl">
+              Sales statistics
             </div>
             <div className="px-4 pb-4">
               <BarChart section={'Sales'} className="flex items-center justify-center "></BarChart>
             </div>
           </div>
           <div className="flex flex-col rounded-lg border border-gray-100 bg-white shadow-xl">
-            <div className="text-start p-5 text-lg">
-              <span className="flex font-bold text-3xl">1234</span>
-              Orders this month
+            <div className="text-start p-5 font-bold text-xl">
+              Orders statistics
             </div>
             <div className="px-4 pb-4">
               <BarChart section={'Orders'} className="flex"></BarChart>
@@ -200,7 +198,7 @@ import BarChart from "../components/chart/BarChart.jsx";
         </div>
 
 
-          <div className="bg-white  flx flex-col  rounded-lg border border-gray-100 shadow-xl mb-6">
+        <div className="bg-white  flx flex-col  rounded-lg border border-gray-100 shadow-xl mb-6">
             <div className="text-start p-5 text-3xl font-bold">
               Warehouse's capacity
             </div>
