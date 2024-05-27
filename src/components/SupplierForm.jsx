@@ -1,9 +1,6 @@
-import { useState} from 'react'
+import React, { useState } from 'react';
 import axios from 'axios';
-
-
 import { SUPPLIER_DATA } from '../../api/endPointAPI';
-// eslint-disable-next-line react/prop-types
 
 const SupplierForm = () => {
     const initialValues = {
@@ -12,26 +9,28 @@ const SupplierForm = () => {
         SupplierAddress: '',
     };
     const [formSupplier, setFormSupplier] = useState(initialValues);
-
+    const [showWarning, setShowWarning] = useState(false);
 
     const handleChange = (e) => {
         setFormSupplier({ ...formSupplier, [e.target.name]: e.target.value });
     };
 
-
-
     const handleSave = async (e) => {
         e.preventDefault();
-        try {
-                const response = await axios.post(SUPPLIER_DATA, formSupplier,{
-                    headers: {
-                      Authorization: `Bearer ${localStorage.getItem("token")}`,
-                    },
-                  });
-                setFormSupplier(initialValues);
-                console.table(response.data)
+        // Check if any field is empty
+        if (!formSupplier.SupplierName || !formSupplier.SupplierContact || !formSupplier.SupplierAddress) {
+            setShowWarning(true);
+            return;
         }
-        catch (error) {
+        try {
+            const response = await axios.post(SUPPLIER_DATA, formSupplier, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem("token")}`,
+                },
+            });
+            setFormSupplier(initialValues);
+            console.table(response.data);
+        } catch (error) {
             console.error('Error:', error);
             alert('Error saving supplier data. Please try again.');
         }
@@ -41,12 +40,13 @@ const SupplierForm = () => {
         setFormSupplier(initialValues);
     };
 
+    const closeWarningModal = () => {
+        setShowWarning(false);
+    };
 
-    
     return (
-        // <div className="flex justify-center">
         <div className="w-fit">
-            <div className="bg-white p-6 shadow-md rounded-md  ">
+            <div className="bg-white p-6 shadow-md rounded-md">
                 <h2 className="text-xl font-semibold mb-4">Supplier Form</h2>
                 <div className="mb-4">
                     <label htmlFor="SupplierName" className="block mb-1">Supplier Name:</label>
@@ -88,14 +88,32 @@ const SupplierForm = () => {
                         Clear
                     </button>
                     <button
-                        className="px-4 py-2  bg-blue-500 font-semibold bg-sky-300 rounded-md hover:bg-sky-600 focus:outline-none"
+                        className="px-4 py-2 bg-blue-500 font-semibold bg-sky-300 rounded-md hover:bg-sky-600 focus:outline-none"
                         onClick={handleSave}
-                    > Save
+                    >
+                        Save
                     </button>
                 </div>
             </div>
-        </div>
-    )
-}
 
-export default SupplierForm
+            {/* Warning Modal */}
+            {showWarning && (
+                <div className="fixed inset-0 flex items-center justify-center z-50">
+                    <div className="bg-black bg-opacity-50 absolute inset-0"></div>
+                    <div className="bg-white p-6 rounded-md shadow-md relative z-10">
+                        <h2 className="text-xl font-semibold mb-4">Warning</h2>
+                        <p className="mb-4">All fields are required. Please fill out all fields.</p>
+                        <button
+                            className=" py-2 bg-blue-500 text-blue pl-[250px] font-semibold rounded-md hover:bg-blue-600 focus:outline-none"
+                            onClick={closeWarningModal}
+                        >
+                            Close
+                        </button>
+                    </div>
+                </div>
+            )}
+        </div>
+    );
+};
+
+export default SupplierForm;

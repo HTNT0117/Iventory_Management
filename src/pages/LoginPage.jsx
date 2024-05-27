@@ -7,6 +7,8 @@ const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [modalMessage, setModalMessage] = useState('');
+  const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
@@ -42,7 +44,12 @@ const LoginPage = () => {
         console.error("Login failed");
       }
     } catch (error) {
-      console.error("Error:", error);
+      if (error.response && error.response.status === 500) {
+        setModalMessage("Invalid email or password.");
+        setShowModal(true);
+      } else {
+        console.error("Error:", error);
+      }
     }
   };
 
@@ -68,26 +75,39 @@ const LoginPage = () => {
 
   return (
     <div className="flex bg-white h-screen">
-     <div className='text-blue font-bold text-4xl w-1/2 justify-center items-center flex flex-col transform -translate-y-8'>
-                <div className='text-center'>
-                    <p className='p-1 mb-1'>INVENTORY</p>
-                    <p className='p-1 mb-1'>MANAGEMENT</p>
-                    <p className='p-1'>SYSTEM</p>
-                    <p className='p-1 smaller-text'> Group 1</p>                    
-                </div>
-                
-                <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px', marginTop: '10px'}}>
-                    <img src="login_asset/shiba.png" alt="Image 1" style={{ width: '33.33%', margin: '0 1%' }} />
-                    <img src="login_asset/tram.png" alt="Image 2" style={{ width: '33.33%', margin: '0 1%' }} />
-                    <img src="login_asset/quynh.png" alt="Image 3" style={{ width: '33.33%', margin: '0 1%' }} />
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <img src="login_asset/Sang.png" alt="Image 1" style={{ width: '33.33%', margin: '0 1%' }} />
-                    <img src="login_asset/nghia.png" alt="Image 2" style={{ width: '33.33%', margin: '0 1%' }} />
-                    <img src="login_asset/na.png" alt="Image 3" style={{ width: '33.33%', margin: '0 1%' }} />
-                    <img src="login_asset/huy.png" alt="Image 4" style={{ width: '33.33%', margin: '0 1%' }} />
-                </div>
+      {showModal && (
+        <div className='fixed inset-0 flex items-center justify-center bg-gray-700 bg-opacity-50'>
+          <div className='bg-white rounded-lg shadow-lg relative max-w-sm w-full'>
+            <p className='text-center text-lg font-bold justify-center pt-10'>{modalMessage}</p>
+            <button
+              onClick={() => setShowModal(false)}
+              className=' w-full bg-blue-500 text-blue pb-7  rounded hover:text-sky-600 '
+            >
+              Close
+            </button>
+          </div>
         </div>
+      )}
+      <div className='text-blue font-bold text-4xl w-1/2 justify-center items-center flex flex-col transform -translate-y-8'>
+        <div className='text-center'>
+          <p className='p-1 mb-1'>INVENTORY</p>
+          <p className='p-1 mb-1'>MANAGEMENT</p>
+          <p className='p-1'>SYSTEM</p>
+          <p className='p-1 smaller-text'> Group 1</p>                    
+        </div>
+        
+        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px', marginTop: '10px'}}>
+          <img src="login_asset/shiba.png" alt="Image 1" style={{ width: '33.33%', margin: '0 1%' }} />
+          <img src="login_asset/tram.png" alt="Image 2" style={{ width: '33.33%', margin: '0 1%' }} />
+          <img src="login_asset/quynh.png" alt="Image 3" style={{ width: '33.33%', margin: '0 1%' }} />
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <img src="login_asset/Sang.png" alt="Image 1" style={{ width: '33.33%', margin: '0 1%' }} />
+          <img src="login_asset/nghia.png" alt="Image 2" style={{ width: '33.33%', margin: '0 1%' }} />
+          <img src="login_asset/na.png" alt="Image 3" style={{ width: '33.33%', margin: '0 1%' }} />
+          <img src="login_asset/huy.png" alt="Image 4" style={{ width: '33.33%', margin: '0 1%' }} />
+        </div>
+      </div>
 
       <div className="flex flex-col w-1/2 items-center justify-center font-bold">
         <form className="w-1/2 gap-6" onSubmit={handleLogin}>
@@ -132,9 +152,7 @@ const LoginPage = () => {
         </div>
       </div>
     </div>
-
-
-            );
+  );
 };
 
 export default LoginPage;

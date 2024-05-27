@@ -31,7 +31,7 @@ const SupplierTable = () => {
 
     useEffect(() => {
         fetchData();
-        const intervalId = setInterval(fetchData, 5000);
+        const intervalId = setInterval(fetchData, 300);
         return () => clearInterval(intervalId);
     }, []);
 
